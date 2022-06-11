@@ -18,6 +18,7 @@ six = "*"
 "django.utils.six" = "*"
 django-registration = "*"
 django-registration-redux = "*"
+djangorestframework = "*"
 
 [dev-packages]
 
