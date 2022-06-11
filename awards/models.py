@@ -1,87 +1,94 @@
 from django.db import models
 
 # Create your models here.
-class Category(models.Model):
-    name=models.CharField(max_length = 100, null=False,blank=False)
+from django.db import models
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from cloudinary.models import CloudinaryField
+import datetime as dt
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    profile_picture = models.ImageField(upload_to='image/', default='default.png')
+    bio = models.TextField(max_length=500, default="My Bio", blank=True)
+    name = models.CharField(blank=True, max_length=120)
+    location = models.CharField(max_length=60, blank=True)
+    contact = models.EmailField(max_length=100, blank=True)
 
     def __str__(self):
-        return self.name
-    def save_category(self):
-        self.save()
-    # delete the image database
-    def delete_category(self):
-        self.delete()
+        return f'{self.user.username} Profile'
 
-    def get_all_category(cls):
-        categories = Category.objects.all()
-        return categories
+    @receiver(post_save, sender=User)
+    def create_user_profile(sender, instance, created, **kwargs):
+        if created:
+            Profile.objects.create(user=instance)
 
-class Photo(models.Model):
-    name = models.CharField(max_length =30,null=True)
-    category=models.ForeignKey(Category, on_delete=models.SET_NULL,null=True,blank=True)
-    description=models.TextField(null=True)
-    image = models.ImageField(default='DEFAULT VALUE')
-    location = models.ForeignKey('Location',null=True,on_delete=models.CASCADE)
-    
-    def __str__(self):
-        return self.description
+    @receiver(post_save, sender=User)
+    def save_user_profile(sender, instance, **kwargs):
+        instance.profile.save()
 
-    def save_image(self):
-        self.save()
-    # delete the image database
-    def delete_image(self):
-        self.delete()
-    # get all images
-    def update_image(self, name, description, location, category):
-        self.name = name
-        self.description = description
-        self.location = location
-        self.category = category
-        self.save()
 
-    @classmethod
-    def get_all_images(cls):
-        images = Photo.objects.all()
-        return images
-    
-
-    # get image by id
-    @classmethod
-    def get_image_by_id(cls, id):
-        image = Photo.objects.get(id=id)
-        return image
-
-    @classmethod
-    def filter_by_category(cls, category_id):
-        images = Photo.objects.filter(category_id=category_id)
-        return images
-    # get images by location
-    @classmethod
-    def filter_by_location(cls, location_id):
-        images = Photo.objects.filter(location__id=location_id)
-        return images
-
-    @classmethod
-    def search_by_category(cls,search_term):
-        searched_photos=cls.objects.filter(category__name__icontains=search_term)
-        return searched_photos
-
-class Location(models.Model):
-    name = models.CharField(max_length=50, unique=True)
-    # save location to database
-    def save_location(self):
-        self.save()
-
-    # update location
-    def update_location(self, name):
-        self.name = name
-        self.save()
-
-     # delete location from database
-    def delete_location(self):
-        self.delete()
+class Post(models.Model):
+    title = models.CharField(max_length=155)
+    url = models.URLField(max_length=255)
+    description = models.TextField(max_length=255)
+    image = CloudinaryField('image',default='DEFAULT VALUE')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts")
+    date = models.DateTimeField(auto_now_add=True, blank=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.title}'
 
-  
+    def delete_post(self):
+        self.delete()
+
+    @classmethod
+    def search_project(cls, title):
+        return cls.objects.filter(title__icontains=title).all()
+
+    @classmethod
+    def all_posts(cls):
+        return cls.objects.all()
+
+    def save_post(self):
+        self.save()
+
+
+
+
+class Rating(models.Model):
+    rating = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+        (6, '6'),
+        (7, '7'),
+        (8, '8'),
+        (9, '9'),
+        (10, '10'),
+    )
+
+    design = models.IntegerField(choices=rating, default=0, blank=True)
+    usability = models.IntegerField(choices=rating, blank=True)
+    content = models.IntegerField(choices=rating, blank=True)
+    score = models.FloatField(default=0, blank=True)
+    design_average = models.FloatField(default=0, blank=True)
+    usability_average = models.FloatField(default=0, blank=True)
+    content_average = models.FloatField(default=0, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='rater')
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='ratings', null=True)
+
+    def save_rating(self):
+        self.save()
+
+    @classmethod
+    def get_ratings(cls, id):
+        ratings = Rating.objects.filter(post_id=id).all()
+        return ratings
+
+    def __str__(self):
+        return f'{self.post} Rating'
