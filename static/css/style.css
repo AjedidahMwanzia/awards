@@ -196,6 +196,13 @@ a:focus {
   margin: 0 auto;
   margin-top: 6px;
 }
+#try {
+  display: flex;
+
+}
+#try li  a{
+  color: rgb(0, 174, 255);
+}
 
 .posts .img-fluid {
   height: 50px;
