@@ -14,6 +14,8 @@ class Project(models.Model):
     image = CloudinaryField("image")
     url = models.URLField(blank=True)
     location = models.CharField(max_length=100, default="Nairobi")
+    # usability_rate = models.IntegerField(default=0, blank=True, null=True)
+    # content_rate = models.IntegerField(default=0, blank=True, null=True)
     date = models.DateTimeField(auto_now_add=True, null=True)
 
     @classmethod
