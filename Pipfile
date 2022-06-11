@@ -19,6 +19,7 @@ six = "*"
 django-registration = "*"
 django-registration-redux = "*"
 djangorestframework = "*"
+python-decouple = "*"
 
 [dev-packages]
 

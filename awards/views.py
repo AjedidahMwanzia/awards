@@ -6,6 +6,15 @@ import cloudinary.uploader
 import cloudinary.api
 
 
+from django.http import JsonResponse
+from rest_framework import status
+from django.http import Http404
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import ProfileSerializer,ProjectSerializer
+from .permissions import IsAdminOrReadOnly
+
+
 def home(request):
     project = Project.objects.all()
     latest_project = project[0]
@@ -16,7 +25,6 @@ def home(request):
         request, "home.html", {"projects": project, "project_home": latest_project, "rating": rating}
     )
    
-# single project page
 def project_details(request, project_id):
     project = Project.objects.get(id=project_id)
     rating = Rating.objects.filter(project=project)
@@ -24,7 +32,7 @@ def project_details(request, project_id):
 
 
 @login_required(login_url="/accounts/login/")
-def profile(request):  # view profile
+def profile(request):  
     current_user = request.user
     profile = Profile.objects.filter(user_id=current_user.id).first()  # get profile
     project = Project.objects.filter(user_id=current_user.id).all()  # get all projects
@@ -76,13 +84,11 @@ def update_profile(request):
         user.save()
 
         return redirect("/profile", {"success": "Profile Updated Successfully"})
-
-        # return render(request, 'profile.html', {'success': 'Profile Updated Successfully'})
     else:
         return render(request, "profile.html", {"danger": "Profile Update Failed"})
 
 
-# save project
+
 @login_required(login_url="/accounts/login/")
 def save_project(request):
     if request.method == "POST":
@@ -94,9 +100,7 @@ def save_project(request):
         description = request.POST["description"]
         url = request.POST["url"]
         image = request.FILES["image"]
-        # crop image to square
         image = cloudinary.uploader.upload(image, crop="limit", width=500, height=500)
-        # image = cloudinary.uploader.upload(image)
         image_url = image["url"]
 
         project = Project(
@@ -114,7 +118,6 @@ def save_project(request):
         return render(request, "profile.html", {"danger": "Project Save Failed"})
 
 
-# delete project
 @login_required(login_url="/accounts/login/")
 def delete_project(request, id):
     project = Project.objects.get(id=id)
@@ -122,7 +125,7 @@ def delete_project(request, id):
     return redirect("/profile", {"success": "Project Deleted Successfully"})
 
 
-# rate_project
+
 @login_required(login_url="/accounts/login/")
 def rate_project(request, id):
     if request.method == "POST":
@@ -143,10 +146,10 @@ def rate_project(request, id):
             avg_rate=round((float(design_rate)+float(usability_rate)+float(content_rate))/3,2),
         )
 
-        # get the avarage rate of the project for the three rates
+       
         avg_rating= (int(design_rate)+int(usability_rate)+int(content_rate))/3
 
-        # update the project with the new rate
+      
         project.rate=avg_rating
         project.update_project()
 
@@ -156,7 +159,7 @@ def rate_project(request, id):
         return render(request, "project.html", {"danger": "Project Rating Failed", "project": project})
 
 
-# search projects
+
 def search_project(request):
     if 'search_term' in request.GET and request.GET["search_term"]:
         search_term = request.GET.get("search_term")
@@ -168,3 +171,20 @@ def search_project(request):
         message = "You haven't searched for any term"
         return render(request, "search.html", {"message": message})
 
+
+
+class ProfileList(APIView): # get all profiles
+    permission_classes = (IsAdminOrReadOnly,)
+    def get(self, request, format=None):
+        all_profiles = Profile.objects.all()
+        serializers = ProfileSerializer(all_profiles, many=True)
+        return Response(serializers.data)
+
+    
+
+class ProjectList(APIView): # get all projects
+    permission_classes = (IsAdminOrReadOnly,)
+    def get(self, request, format=None):
+        all_projects = Project.objects.all()
+        serializers = ProjectSerializer(all_projects, many=True)
+        return Response(serializers.data)
