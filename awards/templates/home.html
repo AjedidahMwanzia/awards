@@ -1,1 +1,98 @@
 {% extends 'base.html'%}
+
+<div class="container-fluid" style="margin-top:5%;">
+    <div class="container-fluid">
+        <!DOCTYPE html>
+        <html class="no-js" lang="en">
+        <body class="home" data-debug="0">
+
+        <section id="content">
+            <div class="content-view">
+                <div class="box-site-head js-single-element"
+                     data-model="{&quot;likes&quot;:55,&quot;id&quot;:38186,&quot;images&quot;:{&quot;thumbnail&quot;:&quot;submissions\/2019\/10\/5da42f4e8967d075754281.jpg&quot;},&quot;slug&quot;:&quot;laguta-laguta&quot;,&quot;title&quot;:&quot;Laguta &amp; Laguta&quot;,&quot;createdAt&quot;:1571616000,&quot;tags&quot;:[&quot;Design Agencies&quot;,&quot;Mobile &amp; Apps&quot;,&quot;Web &amp; Interactive&quot;,&quot;Flat Design&quot;,&quot;Minimal&quot;,&quot;Portfolio&quot;,&quot;Responsive Design&quot;,&quot;Black&quot;,&quot;Red&quot;,&quot;White&quot;,&quot;Gallery&quot;,&quot;GSAP Animation&quot;,&quot;UI design&quot;,&quot;Nuxt.js&quot;],&quot;type&quot;:&quot;submission&quot;}">
+                    <div class="box-bg has-tablet">
+                        <a href="{% url 'project' random_post.title %}">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB2wAAAK8AQMAAAAZMt0LAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAANJJREFUeNrswYEAAAAAgKD9qRepAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABg9uBAAAAAAADI/7URVFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVWlPTgkAAAAABD0/7UzLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAKNogABue9NggAAAABJRU5ErkJggg=="
+                                 width="1900" height="720" class="lazy"/>
+                        </a>
+                    </div>
+                    <div class="box-content over mi" style="background-image:url(../../static/image/photo.jpg)">
+                        <a href="{% url 'project' random_post.title %}" class="site-link" aria-label=""></a>
+                        <div class="inner vertical-center">
+                            <div class="box-info">
+                                <div class="row mx-auto D-block">
+                                    <h2 class="heading-large"><a href="{% url 'project' random_post.title %}"
+                                                                 style="margin-top:-100px;">{{ random_post.title }}</a>
+                                    </h2>
+                                </div>
+                                <div class="row mx-auto D-block">
+                                    <div class="by ">
+                                        by <strong><a href="">{{ random_post.user.username }}</a>
+                                    </strong> from <strong>{{ random_post.user.profile.location }}</strong>
+                                    </div>
+                                </div>
+                                <div class="box-notesite js-notes">
+                                    <ul>
+                                        {% for rating in random_post.ratings.all %}
+                                        {% if forloop.counter is random_post.ratings.all.count %}
+                                        <li class="circle-note-progress style-design" data-note="">
+                                            <div class="circle">
+                                                <div class="des">
+                                                    <p class="d-block mx-auto textrate">{{rating.design_average}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="legend">DESIGN</div>
+                                        </li>
+                                        <li class="circle-note-progress style-usability"
+                                            data-note="{{rating.usability_average}}">
+                                            <div class="circle">
+                                                <div class="des1">
+                                                    <p class="d-block mx-auto textrate">{{rating.usability_average}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="legend">USABILITY</div>
+                                        </li>
+                                        <li class="circle-note-progress style-creativity"
+                                            data-note="{{rating.content_average}}">
+                                            <div class="circle">
+                                                 <div class="des2">
+                                                    <p class="d-block mx-auto textrate">{{rating.content_average}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="legend">CONTENT</div>
+                                        </li>
+                                        <li class="circle-note-progress style-content" data-note="{{ rating.score }}">
+                                            <div class="circle">
+                                                 <div class="des3">
+                                                    <p class="d-block mx-auto textrate">{{rating.score}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="legend">SCORE</div>
+                                        </li>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="box-breadcrumb">
+                                <div class="box-left">
+                                    <strong class="parent">
+                                        <a href="{% url 'project' random_post.title %}">Trending Site</a>
+                                    </strong>
+                                    <span class="text-x-thin">{{random_post.date|date}}</span>
+                                </div>
+                            </div>
+                            <div class="box-bl">
+                                <a href="{{random_post.url}}" data-identifier="" data-type="submission"
+                                   class="js-visit-item bt-default green-fill" target="_blank" rel="noopener nofollow"
+                                   style="margin-top:-60px;">Visit
+                                    Site</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </body>
+        </html>
+    </div>
