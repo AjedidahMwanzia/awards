@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&amp;display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&amp;display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Merienda:wght@700&amp;display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Aclonica&display=swap");
+
 
 body {
   margin: 0;
@@ -107,7 +106,7 @@ a:focus {
 
 /* homepage */
 .homepage {
-  background-image: url("https://assets.awwwards.com/awards/media/cache/thumb_417_299/submissions/2021/10/616f366b0de89689348566.jpg");
+  background-image: url("../image/photo.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -128,7 +127,7 @@ a:focus {
   color: white;
 }
 
-.card {
+/* .card {
   background: #fff none repeat scroll 0 0;
   border: 2px solid #fff;
   border-radius: 5px;
@@ -137,7 +136,7 @@ a:focus {
   padding: 1px 1px;
   transition: all 300ms ease-in-out;
   -webkit-transition: all 300ms ease-in-out;
-}
+} */
 
 .card:hover {
   box-shadow: 0 0 11px 5px rgba(70, 41, 121, 0.25);
@@ -155,18 +154,13 @@ a:focus {
   width: 100%;
 }
 
-/* search button */
 
-/* .search input {
-  border: 1px solid #eaeff4;
-  border-radius: 2px;
-} */
 
 .categories .btn {
   margin: 2px;
 }
 
-/* side post */
+
 .side-post-image {
   height: 70px;
   width: 100px;
@@ -236,11 +230,7 @@ a:focus {
   color: #032c31;
 }
 
-/* .login-container .help-block {
-  color: #ff0000;
-} */
 
-/* profile page */
 .profile .card-img-top {
   border-radius: 50%;
   display: block;
@@ -330,14 +320,7 @@ a:focus {
 .location-date {
   font-size: 13px;
 }
-/* 
-.display-on-hover {
-  display: none;
-}
 
-.display-on-hover:hover .display-on-hover {
-  display: block;
-} */
 
 .author-home a {
   color: #49c5b6;
