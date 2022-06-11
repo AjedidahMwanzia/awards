@@ -18,3 +18,9 @@ def home(request):
         request, "home.html", {"projects": project, "project_home": latest_project, "rating": rating}
     )
    
+# single project page
+def project_details(request, project_id):
+    project = Project.objects.get(id=project_id)
+    # get project rating
+    rating = Rating.objects.filter(project=project)
+    return render(request, "project.html", {"project": project, "rating": rating})

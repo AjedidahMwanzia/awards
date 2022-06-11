@@ -1,161 +1,118 @@
 {% extends 'base.html'%}
-
-<div class="container-fluid" style="margin-top:5%;">
-    <div class="container-fluid">
-        <!DOCTYPE html>
-        <html class="no-js" lang="en">
-        <body class="home" data-debug="0">
-
-        <section id="content">
-            <div class="content-view">
-                <div class="box-site-head js-single-element"
-                     data-model="{&quot;likes&quot;:55,&quot;id&quot;:38186,&quot;images&quot;:{&quot;thumbnail&quot;:&quot;submissions\/2019\/10\/5da42f4e8967d075754281.jpg&quot;},&quot;slug&quot;:&quot;laguta-laguta&quot;,&quot;title&quot;:&quot;Laguta &amp; Laguta&quot;,&quot;createdAt&quot;:1571616000,&quot;tags&quot;:[&quot;Design Agencies&quot;,&quot;Mobile &amp; Apps&quot;,&quot;Web &amp; Interactive&quot;,&quot;Flat Design&quot;,&quot;Minimal&quot;,&quot;Portfolio&quot;,&quot;Responsive Design&quot;,&quot;Black&quot;,&quot;Red&quot;,&quot;White&quot;,&quot;Gallery&quot;,&quot;GSAP Animation&quot;,&quot;UI design&quot;,&quot;Nuxt.js&quot;],&quot;type&quot;:&quot;submission&quot;}">
-                    <div class="box-bg has-tablet">
-                        <a href="{% url 'project' random_post.title %}">
-                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB2wAAAK8AQMAAAAZMt0LAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAANJJREFUeNrswYEAAAAAgKD9qRepAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABg9uBAAAAAAADI/7URVFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVWlPTgkAAAAABD0/7UzLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAKNogABue9NggAAAABJRU5ErkJggg=="
-                                 width="1900" height="720" class="lazy"/>
-                        </a>
-                    </div>
-                    <div class="box-content over mi" style="background-image:url(../../static/image/photo.jpg)">
-                        <a href="{% url 'project' random_post.title %}" class="site-link" aria-label=""></a>
-                        <div class="inner vertical-center">
-                            <div class="box-info">
-                                <div class="row mx-auto D-block">
-                                    <h2 class="heading-large"><a href="{% url 'project' random_post.title %}"
-                                                                 style="margin-top:-100px;">{{ random_post.title }}</a>
-                                    </h2>
-                                </div>
-                                <div class="row mx-auto D-block">
-                                    <div class="by ">
-                                        by <strong><a href="">{{ random_post.user.username }}</a>
-                                    </strong> from <strong>{{ random_post.user.profile.location }}</strong>
+{% block content %}
+<!-- homepage section -->
+<section class="homepage">
+    <div class="home">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 text-center">
+                    <div class="homepage-content">
+                        <a href="{% url 'project_details' project_home.id %}">
+                            <h1 class="text-white text-bold text-capitalize">
+                                {{project_home.title }}
+                            </h1>
+                            <p class="author-home mt-3">
+                                by
+                                <strong>
+                                    <a class="text-capitalize">{{project_home.user.username }}</a>
+                                </strong>
+                                <i>from</i>
+                                <strong class="text-capitalize">{{project_home.location }}</strong>
+                                <!-- with
+                                <strong>7.53</strong> -->
+                            </p>
+                            <div class="button-group mt-5">
+                                <div class="d-flex justify-content-center">
+                                    <div>
+                                        <a class="btn btn-design"><span>{{ rating.design_rate }}</span></a> <br>
+                                        <span>Design</span>
+                                    </div>
+                                    <div>
+                                        <a class="btn btn-usability"><span>{{ rating.usability_rate }}</span></a> <br>
+                                        <span>Usability</span>
+                                    </div>
+                                    <div>
+                                        <a class="btn btn-content"><span>{{ rating.content_rate }}</span></a> <br>
+                                        <span>Content</span>
                                     </div>
                                 </div>
-                                <div class="box-notesite js-notes">
-                                    <ul>
-                                        {% for rating in random_post.ratings.all %}
-                                        {% if forloop.counter is random_post.ratings.all.count %}
-                                        <li class="circle-note-progress style-design" data-note="">
-                                            <div class="circle">
-                                                <div class="des">
-                                                    <p class="d-block mx-auto textrate">{{rating.design_average}}</p>
-                                                </div>
-                                            </div>
-                                            <div class="legend">DESIGN</div>
-                                        </li>
-                                        <li class="circle-note-progress style-usability"
-                                            data-note="{{rating.usability_average}}">
-                                            <div class="circle">
-                                                <div class="des1">
-                                                    <p class="d-block mx-auto textrate">{{rating.usability_average}}</p>
-                                                </div>
-                                            </div>
-                                            <div class="legend">USABILITY</div>
-                                        </li>
-                                        <li class="circle-note-progress style-creativity"
-                                            data-note="{{rating.content_average}}">
-                                            <div class="circle">
-                                                 <div class="des2">
-                                                    <p class="d-block mx-auto textrate">{{rating.content_average}}</p>
-                                                </div>
-                                            </div>
-                                            <div class="legend">CONTENT</div>
-                                        </li>
-                                        <li class="circle-note-progress style-content" data-note="{{ rating.score }}">
-                                            <div class="circle">
-                                                 <div class="des3">
-                                                    <p class="d-block mx-auto textrate">{{rating.score}}</p>
-                                                </div>
-                                            </div>
-                                            <div class="legend">SCORE</div>
-                                        </li>
+                            </div>
+                        </a>
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-10">
+                                <!-- search input -->
+                                <form action="{% url 'search_project' %}" class="mt-5" >
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="Search for Project..." aria-label="Search for..."
+                                            aria-describedby="basic-addon2" name="search_term">
+                                        <div class="input-group-append">
+                                            <button class="btn" type="button">Search</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- blogs -->
+<section class="blog-section" id="posts">
+    <div class="container mt-5">
+        
+        <div class="row mt-4">
+            {% for project in projects %}
+            <div class="col-md-12 col-lg-3">
+                <div class="card mb-4 post-card">
+                    <img src="{{ project.image.url }}"
+                        class="card-img-top" alt="Personal">
+                    <div class="card-body">
+                        <a href="{% url 'project_details' project.id %}">
+                            <h6 class="fade-item mb-2">{{ project.title }}</h6>
+                            <div class="d-flex justify-content-between location-date">
+                                <div>
+                                    <p class="text-uppercase">{{ project.location }}</p>
+                                </div>
+                                <div>
+                                    <p>{{ project.date|date}}</p>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mt-2">
+                                <div class="d-flex justify-content-start">
+                                    <div>
+                                        <!-- check if author image exists else display a placeholder -->
+                                        {% if project.user.profile_image %}
+                                        <img src="{{ project.user.profile_image.url }}"
+                                            class="poster-img" alt="Author">
+                                        {% else %}
+                                        <img src="https://st2.depositphotos.com/1104517/11965/v/600/depositphotos_119659092-stock-illustration-male-avatar-profile-picture-vector.jpg"
+                                            class="poster-img" alt="Author">
                                         {% endif %}
-                                        {% endfor %}
-                                    </ul>
+                                    </div>
+                                    <div>
+                                        <p class="author mt-2 text-uppercase"><strong>BY <strong>{{ project.user.first_name }} {{ project.user.last_name }}</strong></strong></p>
+                                    </div>
+                                </div>
+                                <div class="display-on-hover">
+                                    <a href="{% url 'project_details' project.id %}" class="btn btn-custome"><small>Vote Now</small></a>
                                 </div>
                             </div>
-                            <div class="box-breadcrumb">
-                                <div class="box-left">
-                                    <strong class="parent">
-                                        <a href="{% url 'project' random_post.title %}">Trending Site</a>
-                                    </strong>
-                                    <span class="text-x-thin">{{random_post.date|date}}</span>
-                                </div>
-                            </div>
-                            <div class="box-bl">
-                                <a href="{{random_post.url}}" data-identifier="" data-type="submission"
-                                   class="js-visit-item bt-default green-fill" target="_blank" rel="noopener nofollow"
-                                   style="margin-top:-60px;">Visit
-                                    Site</a>
-                            </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
-        </section>
+            {% endfor %}
 
-    <div class="container">
-        <h2 class="mt-4">Websites available</h2>
-        {% if user.is_authenticated %}
-        <div class="modal fade bd-example-modal-xl" id="ModalCenter" tabindex="-1" role="dialog"
-             aria-labelledby="exampleModalCenterTitle"
-             aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Upload a project</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="" method="post" enctype="multipart/form-data">
-                            {% csrf_token %}
-                           
-                            <input type="submit" class="btn btn-sm btn-info" value="Save"/>
-                            <button type="button" class="btn btn-outline-danger btn-sm" data-dismiss="modal">Close
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% endif %}
-        <div class="row">
-            {% if posts %}
-
-            <div class="templates display">
-                {% for post in posts %}
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <div class="view overlay">
-                            <img class="card-img-top" src="{{ post.photo.cdn_url }}"
-                                 alt="{{photo.title}}">
-                            <a href="{% url 'project' post.title %}">
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title"><a href="{% url 'project' post.title %}">{{post.title|title}}</a> <a
-                                    class="btn btn-sm btn-outline-info" href="{{ post.url }}" > View</a></h4>
-                            <hr>
-                            <p class="card-text "><img src="{{post.user.profile.profile_picture.url}}"
-                                                       class="nav-img mr-2"
-                                                       alt="">
-                                By {{post.user.username|title}} <span style="float:right">{{post.date|date}}</span>
-
-
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-
-            {% endif %}
         </div>
     </div>
-</div>
-        </body>
-        </html>
-    </div>
+</section>
+
+
+{% endblock %}
