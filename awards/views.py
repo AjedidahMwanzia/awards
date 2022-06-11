@@ -8,11 +8,9 @@ import cloudinary.api
 
 def home(request):
     project = Project.objects.all()
-    # get the latest project from the database
     latest_project = project[0]
-    # get project rating
     rating = Rating.objects.filter(project_id=latest_project.id).first()
-    # print(latest_project.id)
+    
 
     return render(
         request, "home.html", {"projects": project, "project_home": latest_project, "rating": rating}
@@ -21,7 +19,6 @@ def home(request):
 # single project page
 def project_details(request, project_id):
     project = Project.objects.get(id=project_id)
-    # get project rating
     rating = Rating.objects.filter(project=project)
     return render(request, "project.html", {"project": project, "rating": rating})
 
