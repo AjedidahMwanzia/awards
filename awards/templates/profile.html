@@ -1,26 +1,7 @@
 {% extends "base.html" %}
+{% load bootstrap3 %}
 {% block content %}
-<style>
-    .card {
-        background: #fff none repeat scroll 0 0;
-        border: 1px solid rgb(255, 255, 255);
-        border-radius: 1px;
-        box-shadow: 0 0 11px 5px rgb(103 58 183 / 10%);
-        margin-bottom: 1px;
-        padding: 1px 1px;
-        transition: all 300ms ease-in-out;
-        -webkit-transition: all 300ms ease-in-out;
-    }
 
-    .card:hover {
-        box-shadow: 0 0 11px 5px rgba(70, 41, 121, 0.25);
-        background: linear-gradient(-19deg, rgba(235, 174, 8, 0.95) 0px);
-    }
-
-    .profile .card-img-top {
-        border-radius: 50% !important;
-    }
-</style>
 <section class="profile container">
     <div class=" mt-5">
         <div class="row">
@@ -30,7 +11,7 @@
                     {% if profile.profile_photo %}
                     <img src="{{profile.profile_photo.url}}" alt="" class="card-img-top">
                     {%else%}
-                    <img src="https://st2.depositphotos.com/1104517/11965/v/600/depositphotos_119659092-stock-illustration-male-avatar-profile-picture-vector.jpg"
+                    <img src="../../static/image/empty.webp"
                         class="card-img-top" alt="My profile picture">
                     {% endif %}
                     <div class="card-body text-center">

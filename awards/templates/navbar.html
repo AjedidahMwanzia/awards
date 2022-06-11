@@ -3,11 +3,15 @@
       <a class="navbar-brand" href="/">
           Awaards
       </a>
+      <div class="logo">
+        <a href="/">Home</a>
+    </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           <i class="fa fa-bars"></i>
       </button>
+      
       <div class="collapse navbar-collapse" id="navbarContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           </ul>
@@ -17,8 +21,8 @@
                   <span class="nav-link text-dark"><a href="/profile" class="text-primary"><i
                               class="fa fa-user-alt"></i><br><strong>{{ user.username }}</strong></a></span>
                   {% else %}
-                  <span class="nav-link text-dark">Register/Login <a href="/accounts/login"
-                          class="text-primary"><strong>LOG IN</strong></a></span>
+                  <span class="nav-link text-dark"> <a href="/accounts/login"
+                          class="text-primary"><strong>REGISTER/LOG IN</strong></a></span>
                   {% endif %}
               </li>
           </ul>

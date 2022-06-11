@@ -7,7 +7,7 @@
 
     {% else %}
     <section class="single-top-header"
-        style="background-image: url(https://res.cloudinary.com/developerwilson/image/upload/v1634499490/avhiyof5jsswdgdbfh4f.jpg)">
+        style="background-image: url{{ project.image.url }}">
         {% endif %}
         <div class="header">
             <div class="container">
@@ -26,7 +26,7 @@
                                 {% if project.user.profile_pic_path %}
                                 <img src="{{ post.user.profile_pic_path }}" alt="author" class="author-img mt-3">
                                 {% else %}
-                                <img src="https://image.pngaaa.com/303/1721303-middle.png" alt="author"
+                                <img src="../../static/image/empty.webp" alt="author"
                                     class="author-img mt-3 mb-3">
                                 {% endif %}
                             </div>
