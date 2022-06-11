@@ -9,6 +9,7 @@ django = "*"
 cloudinary = "*"
 django-bootstrap3 = "*"
 django-crispy-forms = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
