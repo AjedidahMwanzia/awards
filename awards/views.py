@@ -1,14 +1,20 @@
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect, get_object_or_404
+from .models import *
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
-
-from .models import Profile, Post, Rating
-
-from django.contrib.auth import login, authenticate
-from django.contrib.auth.models import User
-from django.http import HttpResponseRedirect
-import random
 
 def home(request):
-    
-    return render(request, 'home.html')
+    project = Project.objects.all()
+    # get the latest project from the database
+    latest_project = project[0]
+    # get project rating
+    rating = Rating.objects.filter(project_id=latest_project.id).first()
+    # print(latest_project.id)
+
+    return render(
+        request, "home.html", {"projects": project, "project_home": latest_project, "rating": rating}
+    )
+   
