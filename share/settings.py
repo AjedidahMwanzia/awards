@@ -13,6 +13,8 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 from pathlib import Path
+
+
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,7 +30,7 @@ SECRET_KEY = 'django-insecure-mqa-))8-0s$-1k5+@6_=3j!e%mn3vnq67b_si6ya7y$s07__tn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -77,6 +79,11 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'share.wsgi.application'
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 
 # Database
