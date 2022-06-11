@@ -93,8 +93,6 @@ a:focus {
 .nav-link {
   margin-right: 0.5vw;
 }
-
-/* homepage */
 .homepage {
   background-image: url("../image/photo.jpg");
   background-size: cover;
@@ -116,44 +114,29 @@ a:focus {
   background-color: rgba(39, 39, 39, 0.3);
   color: white;
 }
-
-
- 
 .profile .card-img-top {
-        border-radius: 50% !important;
-    }
-
-
-
+  border-radius: 50% !important;
+}
 .card h5 {
   font-size: 18px;
   line-height: 26px;
 }
-
 .post-card .card-img-top img {
   border-radius: 5px 5px 0 0;
   height: 200px;
   width: 100%;
 }
-
-
-
 .categories .btn {
   margin: 2px;
 }
-
-
 .side-post-image {
   height: 70px;
   width: 100px;
   border-radius: 5px;
 }
-
 .tops span {
   font-size: 13px;
 }
-
-/* footer */
 .footer {
   padding: 0.5rem 0;
   border-top: 1px solid #f1f2f3;
@@ -165,14 +148,11 @@ a:focus {
   color: white;
   text-transform: uppercase;
 }
-
-/* login page */
 .container-header {
   text-align: center;
   padding: 25px;
-  background-color: #f0f0f0;
+ 
 }
-
 .login-card {
   border: 1px solid #d3ced2;
   padding: 20px;
@@ -180,9 +160,8 @@ a:focus {
   text-align: left;
   border-radius: 5px;
 }
-
 .login-container {
-  background-color: white;
+  background: #f7f7f7;
 }
 
 .login-container label {
@@ -204,9 +183,6 @@ a:focus {
   margin-top: 10px;
 }
 
-.form-group .help-block {
-  color: red;
-}
 
 .text-dark {
   color: rgb(0, 174, 255);
@@ -215,12 +191,9 @@ a:focus {
 
 .profile .card-img-top {
   border-radius: 50%;
-  display: block;
   float: none;
-  /* height: 180px; */
   line-height: 32px;
   margin: 0 auto;
-  /* width: 180px; */
   margin-top: 6px;
 }
 
@@ -229,8 +202,6 @@ a:focus {
   width: 50px;
   border-radius: 50%;
 }
-
-/* single post styles */
 .single-top-header {
   background-position: center;
   background-repeat: no-repeat;
@@ -259,8 +230,6 @@ a:focus {
   font-size: 18px;
   color: #757575;
 }
-
-/* comments container */
 .comments-container {
   background-color: #fafbfb;
   padding: 20px;
@@ -286,8 +255,6 @@ a:focus {
   font-size: 14px;
   font-weight: 300;
 }
-/* ============================ */
-
 .poster-img {
   width: 30px;
   height: 30px;
@@ -361,7 +328,6 @@ a:focus {
 .search-form {
   margin-left: 300px;
 }
-/* on small device change height of the image */
 @media (max-width: 767px) {
   .blog-section .card-img-top,
   .card-img-tops {
