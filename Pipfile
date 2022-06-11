@@ -11,6 +11,9 @@ django-bootstrap3 = "*"
 django-crispy-forms = "*"
 psycopg2 = "*"
 pillow = "*"
+django-registration-redux = "*"
+django-registration = "*"
+django-mathfilters = "*"
 
 [dev-packages]
 
