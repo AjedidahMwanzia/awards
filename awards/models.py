@@ -1,12 +1,15 @@
 from django.db import models
 import datetime as dt
-
-# cloudinary
+from django.forms import ModelForm, widgets
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django import forms
+from django.core.validators import MaxValueValidator, MinValueValidator
 from cloudinary.models import CloudinaryField
 from django.contrib.auth.models import User
 
 
-# project models
+
 class Project(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=250)
@@ -36,7 +39,7 @@ class Project(models.Model):
         projects = cls.objects.filter(user=user)
         return projects
 
-    # update project
+    
     def update_project(self, **kwargs):
         for key, value in kwargs.items():
             setattr(self, key, value)
@@ -52,7 +55,7 @@ class Project(models.Model):
         return self.title
 
 
-# profile models
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_photo = CloudinaryField("image")
@@ -74,7 +77,7 @@ class Profile(models.Model):
         return self.user.username
 
 
-# rating models
+
 class Rating(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
@@ -98,3 +101,15 @@ class Rating(models.Model):
     def __str__(self):
         return self.user.username
     
+
+class UpdateProfileForm(ModelForm):
+    class Meta:
+        model = Profile
+        fields = ("user", "profile_photo", "bio", "contact")
+
+
+
+class ProjectForm(ModelForm):
+    class Meta:
+        model = Project
+        fields = ("user", "title", "description", "image", "url", "location")

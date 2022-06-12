@@ -5,7 +5,6 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-
 from django.http import JsonResponse
 from rest_framework import status
 from django.http import Http404
@@ -44,7 +43,7 @@ def update_profile(request):
     if request.method == "POST":
 
         current_user = request.user
-
+       
         first_name = request.POST["first_name"]
         last_name = request.POST["last_name"]
         username = request.POST["username"]
@@ -59,7 +58,7 @@ def update_profile(request):
 
         user = User.objects.get(id=current_user.id)
 
-        # check if user exists in profile table and if not create a new profile
+       
         if Profile.objects.filter(user_id=current_user.id).exists():
 
             profile = Profile.objects.get(user_id=current_user.id)
@@ -94,7 +93,7 @@ def save_project(request):
     if request.method == "POST":
 
         current_user = request.user
-
+        form=ProjectForm(request.POST,request.FILES)
         title = request.POST["title"]
         location = request.POST["location"]
         description = request.POST["description"]

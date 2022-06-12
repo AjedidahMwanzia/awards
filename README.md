@@ -31,15 +31,15 @@ https://github.com/AjedidahMwanzia/awards
 ```
 ##### Navigate into the folder and install requirements  
  ```bash 
-cd awards pip install -r requirements.txt 
+ - pipenv shell
 ```
 ##### Install and activate Virtual  
  ```bash 
-- python3 -m venv virtual - source virtual/bin/activate  
+- pipenv install requests
 ```  
 ##### Install Dependencies  
  ```bash 
- pip install -r requirements.txt 
+  pipenv install 
 ```  
  ##### Setup Database  
   SetUp your database User,Password, Host then make migrate  
@@ -60,12 +60,18 @@ python manage.py makemigrations database name
 ```
 Open the application on your browser `127.0.0.1:8000`.  
   
- ### Api Endpoints
- * 
- * 
+ ## API Endpoints
 
- 
- 
+The following endpoints are available on the server:
+
+```
+ /api/project/
+```
+
+```
+ /api/profile/
+ ```
+
 ## Technology used  
   
 * [Python3.6](https://www.python.org/)  
