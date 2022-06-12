@@ -195,6 +195,10 @@ a:focus {
   line-height: 32px;
   margin: 0 auto;
   margin-top: 6px;
+  width: 30%;
+}
+.profile{
+  margin-left: 17vw;
 }
 #try {
   display: flex;
