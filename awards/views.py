@@ -90,32 +90,20 @@ def update_profile(request):
 
 @login_required(login_url="/accounts/login/")
 def save_project(request):
-    if request.method == "POST":
-
-        current_user = request.user
+    if request.method=='POST':
+        current_user=request.user
         form=ProjectForm(request.POST,request.FILES)
-        title = request.POST["title"]
-        location = request.POST["location"]
-        description = request.POST["description"]
-        url = request.POST["url"]
-        image = request.FILES["image"]
-        image = cloudinary.uploader.upload(image, crop="limit", width=500, height=500)
-        image_url = image["url"]
-
-        project = Project(
-            user_id=current_user.id,
-            title=title,
-            location=location,
-            description=description,
-            url=url,
-            image=image_url,
-        )
-        project.save_project()
-
-        return redirect("/profile", {"success": "Project Saved Successfully"})
+        if form.is_valid():
+            project=form.save(commit=False)
+            project.user=current_user
+            project.save()
+            messages.success(request,('Project was posted successfully!'))
+            return redirect("/profile", {"success": "Project Saved Successfully"})
     else:
-        return render(request, "profile.html", {"danger": "Project Save Failed"})
+            form=ProjectForm()
+    return render(request,'profile.html',{'form':form,'projects':project})
 
+     
 
 @login_required(login_url="/accounts/login/")
 def delete_project(request, id):
