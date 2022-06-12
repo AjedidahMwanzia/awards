@@ -113,3 +113,6 @@ class ProjectForm(ModelForm):
     class Meta:
         model = Project
         fields = ("user", "title", "description", "image", "url", "location")
+
+
+

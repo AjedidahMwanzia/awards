@@ -12,14 +12,15 @@
             <div class="container">
                
                 <div class="row">
-                    <div class="col-md-6"> <div class="images">
+                    <div class="col-md-8"> <div class="images">
                         <img  id="image" width="100%" src="{{ project.image.url }}" alt="{{photo.title}}">
                     </div> </div>
-                    <div class="col-md-6 text-center mt-5">
+                    <div class="col-md-4 text-center mt-5">
                         <div class="single-content">
                            
                             <h2 class="display-6 mt-4 headings">
-                                {{ project.title }}
+                                {{ project.title }}<a
+                                class="btn btn-sm btn-light" href="{{ project.url }}" style="margin-left:8vw ;border-radius: 1vw;width: 5vw;padding: 0.5vw;" >  View</a>
                             </h2>
                             <div class="author mt-5 mb-5">
                                 <p>
@@ -81,12 +82,12 @@
                                     <div class="m-2">
                                         <h5 class="text-capitalize">{{ rate.user.first_name }} {{ rate.user.last_name }}</h5>
                                         <p><a class="text-primary text-capitalize">{{ rate.user.username }}</a></p>
-                                        <span class="badge rounded-pill bg-info text-white">{{ rate.avg_rate }}</span>
+                                        Average Rate:<span class="badge rounded-pill bg-info text-white">{{ rate.avg_rate }}</span>  
                                     </div>
                                 </div>
                             </div>
                             <div>
-                                <div class="d-flex justify-content-center text-center">
+                                <div class="d-flex justify-content-center ">
                                     <div class="m-1">
                                         <a class="btn btn-design"><span class="text-dark">{{ rate.design_rate  }}</span></a> <br>
                                         <span>Design</span>

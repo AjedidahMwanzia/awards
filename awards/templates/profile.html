@@ -11,7 +11,7 @@
                     {% if profile.profile_photo %}
                     <img src="{{profile.profile_photo.url}}" alt="" class="card-img-top">
                     {%else%}
-                    <img src="../../static/image/empty.webp"
+                    <img src="https://res.cloudinary.com/jeddy/image/upload/v1655033910/empty_emxrlc.webp"
                         class="card-img-top" alt="My profile picture">
                     {% endif %}
                     <div class="card-body text-center">
@@ -131,9 +131,8 @@
                     {% endif %}
                     <!-- button to open add picture modal -->
                     <div class="col-md-12">
-                        <button type="button" class="btn m-3" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                            <i class="fa fa-plus text-white"></i> Add Project
+                        <button type="submit" class="btn m-3" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">Add Project
                         </button>
                         <!-- modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
@@ -142,7 +141,7 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Add Project</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        <button type="submit" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
@@ -204,10 +203,9 @@
                                     <td>
                                         <!-- view button -->
                                         <a class="text-primary m-3" href="">
-                                            <i class="fa fa-eye"></i>
                                         </a>
-                                        <a class="text-danger" href="{% url 'delete_project' image.id %}">
-                                            <i class="fa fa-trash-alt text-danger"></i>
+                                        <a class="text-danger" href="{% url 'delete_project' image.id %}">Delete
+                                           
                                         </a>
                                     </td>
                                 </tr>

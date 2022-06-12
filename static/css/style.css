@@ -94,7 +94,7 @@ a:focus {
   margin-right: 0.5vw;
 }
 .homepage {
-  background-image: url("../image/photo.jpg");
+  background-image: url("https://res.cloudinary.com/jeddy/image/upload/v1655033900/photo_zibhez.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -295,7 +295,6 @@ a:focus {
   color: white;
   height: 5vw;
   width: 5vw;
-  font-weight: bold;
   font-weight: 800;
   border-radius: 50%;
   border: 0.2vw solid rgb(143, 30, 30);
@@ -324,6 +323,7 @@ a:focus {
   width: 5vw;
   font-weight: bold;
   border: 0.2vw solid rgb(0, 174, 255);
+ 
 }
 .button-group .justify-content-center div {
   margin-right: 1vw;
@@ -337,6 +337,12 @@ a:focus {
 .blog-section .card-img-top,
 .card-img-tops {
   height: 13vw;
+}
+.d-flex .text-dark{
+  font-size: 1.8vw;
+}
+.d-flex .yes{
+  font-size: 1.8vw;
 }
 .search-form {
   margin-left: 30vw;

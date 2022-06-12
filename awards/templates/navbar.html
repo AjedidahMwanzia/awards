@@ -16,13 +16,17 @@
       <div class="collapse navbar-collapse" id="navbarContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           </ul>
-     <ul class="navbar-nav nav-right">
-                <li class="nav-item text-center" id="try">
+     <ul class="navbar-nav nav-right" style="display: flex;">
                     {% if user.is_authenticated %}
-                   <li><span class="nav-link text-dark"><a href="/profile" class="text-primary"><i
-                                class="fa fa-user-alt"></i><br><strong>{{ user.username }}</strong></a></span></li> 
-                                <li><span class="nav-link text-dark"><a href="/logout" class="text-primary"><i
-                                    class="fa fa-user-alt"></i><br><strong>logout</strong></a></span></li>
+                    <div>
+                        <li style="margin-top: 1.5vw;" class="nav-item text-center" id="try">
+                            <li><span class="nav-link text-dark"><a href="/profile" class="text-primary" ><strong>{{ user.username }}</strong></a></span></li> 
+                    </div>
+                    <div>
+                        <li><span class="nav-link text-dark"><a href="/logout" class="text-primary"><br><strong>logout</strong></a></span></li>
+                    </div>
+                
+                               
                     {% else %}
                     <span class="nav-link text-dark"><a href="/accounts/login"
                             class="text-primary"><strong>REGISTER/LOG IN</strong></a></span>
