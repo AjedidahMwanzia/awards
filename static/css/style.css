@@ -118,47 +118,47 @@ a:focus {
   border-radius: 50% !important;
 }
 .card h5 {
-  font-size: 18px;
-  line-height: 26px;
+  font-size: 1.8vw;
+  line-height: 2.6vw;
 }
 .post-card .card-img-top img {
-  border-radius: 5px 5px 0 0;
-  height: 200px;
+  border-radius: 0.5vw 0.5vw 0 0;
+  height: 20vw;
   width: 100%;
 }
 .categories .btn {
-  margin: 2px;
+  margin: 0.2vw;
 }
 .side-post-image {
-  height: 70px;
-  width: 100px;
-  border-radius: 5px;
+  height: 7vw;
+  width: 10vw;
+  border-radius: 0.5vw;
 }
 .tops span {
-  font-size: 13px;
+  font-size: 1.3vw;
 }
 .footer {
   padding: 0.5rem 0;
-  border-top: 1px solid #f1f2f3;
+  border-top: 0.1px solid #f1f2f3;
   background: rgb(0, 174, 255);
 }
 
 .footer p a {
-  margin: 15px;
+  margin: 1.5vw;
   color: white;
   text-transform: uppercase;
 }
 .container-header {
   text-align: center;
-  padding: 25px;
+  padding: 2.5vw;
  
 }
 .login-card {
-  border: 1px solid #d3ced2;
-  padding: 20px;
-  margin: 2em 0;
+  border: 0.1vw solid #d3ced2;
+  padding: 2vw;
+  margin: 2vw 0;
   text-align: left;
-  border-radius: 5px;
+  border-radius: 0.5vw;
 }
 .login-container {
   background: #f7f7f7;
@@ -166,21 +166,21 @@ a:focus {
 
 .login-container label {
   display: block;
-  font-size: 15px;
+  font-size: 1.5vw;
   font-weight: 400;
 }
 
 .login-container .checkbox {
-  margin-top: 10px;
+  margin-top: 1vw;
 }
 
 .login-container p {
-  margin-top: 10px;
-  font-size: 13px;
+  margin-top: 1vw;
+  font-size: 1.3vw;
 }
 
 .login-container .form-group {
-  margin-top: 10px;
+  margin-top: 1vw;
 }
 
 
@@ -192,9 +192,9 @@ a:focus {
 .profile .card-img-top {
   border-radius: 50%;
   float: none;
-  line-height: 32px;
+  line-height: 3.2vw;
   margin: 0 auto;
-  margin-top: 6px;
+  margin-top: 0.6vw;
   width: 30%;
 }
 .profile{
@@ -209,8 +209,8 @@ a:focus {
 }
 
 .posts .img-fluid {
-  height: 50px;
-  width: 50px;
+  height: 5vw;
+  width: 5vw;
   border-radius: 50%;
 }
 .single-top-header {
@@ -221,40 +221,42 @@ a:focus {
 }
 
 .single-content {
-  padding: 2rem;
-  margin-top: 100px;
-  margin-bottom: 40px;
+  padding: 2vw;
+  margin-top: 1vw;
+  margin-bottom: 4vw;
+  color: black;
 }
-.single-top-header .header {
-  background-color: rgba(0, 0, 0, 0.8);
+.images #imag {
+  margin-top: 1vw;
+  height: 50vw;
 }
 
 .author-img {
-  height: 40px;
-  width: 40px;
+  height: 4vw;
+  width: 4vw;
   border-radius: 50%;
 }
 
 .blog-container {
   font-weight: 300;
-  line-height: 30px;
-  font-size: 18px;
-  color: #757575;
+  line-height: 3vw;
+  font-size: 1.5vw;
+  color: black;
 }
 .comments-container {
   background-color: #fafbfb;
-  padding: 20px;
+  padding: 2vw;
 }
 
 .comment-author-img {
-  width: 80px;
-  height: 80px;
-  padding: 10px;
+  width: 8vw;
+  height: 8vw;
+  padding: 1vw;
   border-radius: 50%;
 }
 
 .comment-p {
-  font-size: 0.82031rem;
+  font-size: 0.8vw;
   font-weight: 300;
 }
 .comment-author {
@@ -263,22 +265,22 @@ a:focus {
 }
 
 .comment-author span {
-  font-size: 14px;
+  font-size: 1.4vw;
   font-weight: 300;
 }
 .poster-img {
-  width: 30px;
-  height: 30px;
+  width: 3vw;
+  height: 3vw;
   border-radius: 50%;
-  margin-right: 10px;
+  margin-right: 1vw;
 }
 
 .author {
-  font-size: 10px;
+  font-size: 1vw;
 }
 
 .location-date {
-  font-size: 13px;
+  font-size: 1vw;
 }
 
 
@@ -291,12 +293,12 @@ a:focus {
 .btn-design:hover {
   background-color: transparent;
   color: white;
-  height: 50px;
-  width: 50px;
+  height: 5vw;
+  width: 5vw;
   font-weight: bold;
   font-weight: 800;
   border-radius: 50%;
-  border: 2px solid rgb(143, 30, 30);
+  border: 0.2vw solid rgb(143, 30, 30);
 }
 
 
@@ -306,10 +308,10 @@ a:focus {
   color: white;
   border-radius: 50%;
   font-weight: 800;
-  height: 50px;
-  width: 50px;
+  height: 5vw;
+  width: 5vw;
   font-weight: bold;
-  border: 2px solid rgb(148, 148, 4);
+  border: 0.2vw solid rgb(148, 148, 4);
 }
 
 .btn-content,
@@ -318,13 +320,13 @@ a:focus {
   color: white;
   border-radius: 50%;
   font-weight: 800;
-  height: 50px;
-  width: 50px;
+  height: 5vw;
+  width: 5vw;
   font-weight: bold;
-  border: 2px solid rgb(0, 174, 255);
+  border: 0.2vw solid rgb(0, 174, 255);
 }
 .button-group .justify-content-center div {
-  margin-right: 15px;
+  margin-right: 1vw;
 }
 
 .button-group span {
@@ -334,27 +336,27 @@ a:focus {
 
 .blog-section .card-img-top,
 .card-img-tops {
-  height: 200px;
+  height: 13vw;
 }
 .search-form {
-  margin-left: 300px;
+  margin-left: 30vw;
 }
 @media (max-width: 767px) {
   .blog-section .card-img-top,
   .card-img-tops {
-    height: 1000px;
+    height: 100vw;
   }
   .search-form {
-    margin-left: 0px;
+    margin-left: 0vw;
   }
 }
 
 .border-radius-around {
   border-radius: 50%;
-  height: 40px;
-  width: 40px;
+  height: 4vw;
+  width: 4vw;
 }
 
 .not-found, .not-found i {
-  font-size: 2em;
+  font-size: 1.5vw;
 }

@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'registration',
     'rest_framework',
+    'crispy_forms',
   
 ]
 
