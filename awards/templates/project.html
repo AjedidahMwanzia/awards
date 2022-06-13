@@ -29,7 +29,7 @@
                                 {% if project.user.profile_pic_path %}
                                 <img src="{{ post.user.profile_pic_path }}" alt="author" class="author-img mt-3">
                                 {% else %}
-                                <img src="../../static/image/empty.webp" alt="author"
+                                <img src="{{ user.profile.profile_photo.url}}" alt="author"
                                     class="author-img mt-3 mb-3">
                                 {% endif %}
                             </div>
@@ -116,8 +116,8 @@
                     <div class="col-md-6">
                         {% if user.is_authenticated %}
                         <div class="d-grid gap-2 mt-4">
-                            <button class="btn" type="button" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">Vote</button>
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#myModal">
+                                
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                                 aria-hidden="true">
@@ -125,7 +125,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">Vote</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            <button  class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
