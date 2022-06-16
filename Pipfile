@@ -20,6 +20,8 @@ django-registration = "*"
 django-registration-redux = "*"
 djangorestframework = "*"
 python-decouple = "*"
+gunicorn = "*"
+whitenoise = "*"
 
 [dev-packages]
 
