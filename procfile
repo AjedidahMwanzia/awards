@@ -1,1 +1,1 @@
-web: gunicorn jaywards.wsgi --log-file -
+web:gunicorn jaywards.wsgi --log-file -
