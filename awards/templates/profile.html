@@ -5,7 +5,7 @@
 <section class="profile container">
     <div class=" mt-5">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-6">
                 <div class="card">
 
                     {% if profile.profile_photo %}
@@ -18,42 +18,34 @@
                         <h4 class="card-text">
                             {{ user.first_name }} {{ user.last_name }}
                         </h4>
-                        <p>{{ user.username }}</p>
+                        <p>Username:{{ user.username }}</p>
                         <p>
                            
-                        {% if profile.contact %}
+                        {% if profile.contact %}Contact:
                         <small>{{ profile.contact }}</small>
                         {% else %}
                         <span class="badge rounded-pill bg-info text-white">No contact</span>
                         {% endif %}
                         </p>
                         <p>
-                            {% if profile.bio %}
+                            {% if profile.bio %}Bio:
                             <small>{{ profile.bio }}</small>
                             {% else %}
                             <span class="text-danger">No about me</span>
                             {% endif %}
                         </p>
-                        <h6>Joined on: <span class="badge rounded-pill bg-secondary text-white">
-                                {{ user.date_joined|date }} </span></h6>
-
+                      
                     </div>
                 </div>
                 
                 <div class="row mt-3 mb-3">
                     <div class="col-md-12">
                         <div class="card p-2">
-                          
-                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#myModal">
-                                
-                            <div class="modal fade" id="profileModal" tabindex="-1" role="dialog"
-                                aria-labelledby="profileModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
+                     
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="profileModalLabel">Update Profile</h5>
-                                            <button type="submit" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
+                                            <h5 class="modal-title"  id="profileModalLabel">Update Profile</h5>
+                                          
                                         </div>
                                         <div class="modal-body">
                                             <form action="{% url 'update_profile' %}" method="POST"
@@ -118,7 +110,7 @@
 
                 </div>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-6" id="part2">
                 <div class="row">
                     {% if success %}
                     <div class="alert alert-success" role="alert">
@@ -131,8 +123,7 @@
                     {% endif %}
                     <!-- button to open add picture modal -->
                     <div class="col-md-12">
-                        <a type="button" class="btn btn-outline-warning" aria-current="page" data-bs-toggle="modal"
-                        data-bs-target="#postproject">post project</a>
+                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#myModal"> Add
                         <!-- modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                             aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -179,7 +170,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-12">
+                <div class="col-md-6 part3" >
                     <div class="card m-3">
                         <table class="table table-responsive table-hover">
                             <thead>

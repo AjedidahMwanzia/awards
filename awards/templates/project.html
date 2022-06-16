@@ -115,18 +115,10 @@
                 <div class="row">
                     <div class="col-md-6">
                         {% if user.is_authenticated %}
-                        <div class="d-grid gap-2 mt-4">
-                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#myModal">
-                                
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Vote</h5>
-                                            <button  class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
+                                            <h5 class="modal-title" id="exampleModalLabel">Rate</h5>
                                         </div>
                                         <div class="modal-body">
                                             <form action="{% url 'rate_project' project.id %}" method="post">

@@ -89,10 +89,11 @@
                                     <div>
                                         <!-- check if author image exists else display a placeholder -->
                                         {% if project.user.profile_image %}
-                                        <img src="{{ project.user.profile_image.url }}"
-                                            class="poster-img" alt="Author">
+                                        <img class="rounded-circle nav-img"
+                                        src="{{ post.user.profile_pic_path }}"
+                                        alt="">
                                         {% else %}
-                                        <img src="../../static/image/empty.webp"
+                                        <img src="https://res.cloudinary.com/jeddy/image/upload/v1655033910/empty_emxrlc.webp"
                                             class="poster-img" alt="Author">
                                         {% endif %}
                                     </div>
@@ -101,7 +102,7 @@
                                     </div>
                                 </div>
                                 <div class="display-on-hover">
-                                    <a href="{% url 'project_details' project.id %}" class="btn btn-custome"><small>Vote </small></a>
+                                    <a href="{% url 'project_details' project.id %}" class="btn btn-custome"><small>Rate </small></a>
                                 </div>
                             </div>
                         </a>
