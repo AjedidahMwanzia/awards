@@ -22,6 +22,7 @@ djangorestframework = "*"
 python-decouple = "*"
 gunicorn = "*"
 whitenoise = "*"
+django-heroku = "*"
 
 [dev-packages]
 
