@@ -9,12 +9,14 @@
         
         {% endif %}
         <div class="header">
-            <div class="container">
+            <div class="container"{{ project.image.url }}>
                
                 <div class="row">
-                    <div class="col-md-8"> <div class="images">
-                        <img  id="image" width="100%" src="{{ project.image.url }}" alt="{{photo.title}}">
-                    </div> </div>
+                    <div class="col-md-8"> 
+                        <div class="images">
+                            <img  id="image" width="100%" src="{{ project.image.url }}" alt="{{photo.title}}">
+                        </div>
+                 </div>
                     <div class="col-md-4 text-center mt-5">
                         <div class="single-content">
                            
