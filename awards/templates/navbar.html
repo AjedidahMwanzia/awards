@@ -20,12 +20,10 @@
                     {% if user.is_authenticated %}
                     <div>
                         <li style="margin-top: 1.5vw;" class="nav-item text-center" id="try">
-                            <li><span class="nav-link text-dark"><a href="/profile" class="text-primary" ><strong>{{ user.username }}</strong><img class="rounded-circle nav-img"
-                                src="{{ user.profile.profile_photo.url}}"
-                                alt=""></a></span></li> 
+                            <li><span class="nav-link " ><a href="/profile"  ><strong>{{ user.username }}</strong></a></span></li> 
                     </div>
                     <div>
-                        <li><span class="nav-link text-dark"><a href="/logout" class="text-primary"><br><strong>logout</strong></a></span></li>
+                        <li><span class="nav-link" ><a href="/logout" ><br><strong>logout</strong></a></span></li>
                     </div>
                 
                                

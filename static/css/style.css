@@ -386,3 +386,17 @@ a:focus {
 .card-img-top{
   width: 100%;
 }
+.poster-img{
+  width: 40%;
+  height: 1vw;
+  margin-top: 0.7vw;
+}
+.display-on-hover .btn{
+  padding: 0;
+  width: 4vw;
+  border-radius: 2vw;
+  margin-top: 0.7vw;
+}
+.blog-section{
+  margin: 3vw;
+}

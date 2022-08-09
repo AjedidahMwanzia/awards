@@ -65,11 +65,11 @@
 
 <!-- blogs -->
 <section class="blog-section" id="posts">
-    <div class="container mt-5">
+    
         
-        <div class="row mt-4">
+        <div class="row mt-5">
             {% for project in projects %}
-            <div class="col-md-4 ">
+            <div class="col-md-3 ">
                 <div class="card mb-4 post-card">
                     <img src="{{ project.image.url }}"
                         class="card-img-top" alt="Personal">
@@ -78,10 +78,10 @@
                             <h6 class="fade-item mb-2">{{ project.title }}</h6>
                             <div class="d-flex justify-content-between location-date">
                                 <div>
-                                    <p >From:{{ project.location }}</p>
+                                    <p ><small>From:{{ project.location }}</small></p>
                                 </div>
                                 <div>
-                                    <p>{{ project.date}}</p>
+                                    <p><small>{{ project.date}}</small></p>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-between mt-2">
@@ -98,11 +98,11 @@
                                         {% endif %}
                                     </div>
                                     <div>
-                                        <p class="author mt-2 text-uppercase">BY: {{ project.user.first_name }} {{ project.user.last_name }}</p>
+                                        <p class="author mt-2 text-capitalize"> <small>By: {{ project.user.first_name }} {{ project.user.last_name }}</small> </p>
                                     </div>
                                 </div>
                                 <div class="display-on-hover">
-                                    <a href="{% url 'project_details' project.id %}" class="btn btn-custome"><small>Rate </small></a>
+                                    <a href="{% url 'project_details' project.id %}" class="btn "><small>Rate </small></a>
                                 </div>
                             </div>
                         </a>
