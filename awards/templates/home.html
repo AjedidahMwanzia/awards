@@ -14,9 +14,9 @@
                             </h1>
                             <p class="author-home mt-3">
                                 by
-                                <strong>
+                            
                                     <a class="text-capitalize">{{project_home.user.username }}</a>
-                                </strong>
+                               
                                 <i>from</i>
                                 <strong class="text-capitalize">{{project_home.location }}</strong>
                              
@@ -69,7 +69,7 @@
         
         <div class="row mt-4">
             {% for project in projects %}
-            <div class="col-md-12 col-lg-3">
+            <div class="col-md-4 ">
                 <div class="card mb-4 post-card">
                     <img src="{{ project.image.url }}"
                         class="card-img-top" alt="Personal">
@@ -78,10 +78,10 @@
                             <h6 class="fade-item mb-2">{{ project.title }}</h6>
                             <div class="d-flex justify-content-between location-date">
                                 <div>
-                                    <p class="text-uppercase">{{ project.location }}</p>
+                                    <p >From:{{ project.location }}</p>
                                 </div>
                                 <div>
-                                    <p>{{ project.date|time}}</p>
+                                    <p>{{ project.date}}</p>
                                 </div>
                             </div>
                             <div class="d-flex justify-content-between mt-2">
@@ -98,7 +98,7 @@
                                         {% endif %}
                                     </div>
                                     <div>
-                                        <p class="author mt-2 text-uppercase"><strong>BY <strong>{{ project.user.first_name }} {{ project.user.last_name }}</strong></strong></p>
+                                        <p class="author mt-2 text-uppercase">BY: {{ project.user.first_name }} {{ project.user.last_name }}</p>
                                     </div>
                                 </div>
                                 <div class="display-on-hover">
