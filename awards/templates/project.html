@@ -2,36 +2,30 @@
 {% block content %}
 
 {% if project.image %}
-<section class="single-top-header">
+<section class="single-top-header" style="background-image: url({{ project.image.url }})">
 
     {% else %}
-    <section class="single-top-header">
-        
+    <section class="single-top-header"
+        style="background-image: url(https://st2.depositphotos.com/1104517/11965/v/600/depositphotos_119659092-stock-illustration-male-avatar-profile-picture-vector.jpg)">
         {% endif %}
         <div class="header">
-            <div class="container"{{ project.image.url }}>
-               
+            <div class="container">
                 <div class="row">
-                    <div class="col-md-8"> 
-                        <div class="images">
-                            <img  id="image" width="100%" src="{{ project.image.url }}" alt="{{photo.title}}">
-                        </div>
-                 </div>
-                    <div class="col-md-4 text-center mt-5">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8 text-center mt-5">
                         <div class="single-content">
-                           
                             <h2 class="display-6 mt-4 headings">
-                                {{ project.title }}<a
-                                class="btn btn-sm btn-light" href="{{ project.url }}" style="margin-left:8vw ;border-radius: 1vw;width: 5vw;padding: 0.5vw;" >  View</a>
+                                {{ project.title }}
                             </h2>
                             <div class="author mt-5 mb-5">
                                 <p>
                                     By {{ project.user.first_name }} {{ project.user.last_name }}
                                 </p>
+                                <!-- check if author profile exists -->
                                 {% if project.user.profile_pic_path %}
                                 <img src="{{ post.user.profile_pic_path }}" alt="author" class="author-img mt-3">
                                 {% else %}
-                                <img src="{{ user.profile.profile_photo.url}}" alt="author"
+                                <img src="https://res.cloudinary.com/jeddy/image/upload/v1655033910/empty_emxrlc.webp" alt="author"
                                     class="author-img mt-3 mb-3">
                                 {% endif %}
                             </div>
@@ -70,26 +64,29 @@
                         {% endif %}
                     </div>
                 </div>
+               
                 <div class="row card p-3">
-                   
+                    <!-- <div class="card-header">
+                        <h3>USER VOTES</h3>
+                    </div> -->
                     {% for rate in rating %}
                     <div class="col-md-12">
                         <div class="d-flex justify-content-between">
                             <div>
                                 <div class="d-flex justify-content-start">
                                     <div>
-                                        <img src=""
+                                        <img src="https://assets.awwwards.com/awards/media/cache/thumb_user_70/avatar/1118370/60a37004dd5ed949501371.png"
                                             alt="">
                                     </div>
                                     <div class="m-2">
                                         <h5 class="text-capitalize">{{ rate.user.first_name }} {{ rate.user.last_name }}</h5>
                                         <p><a class="text-primary text-capitalize">{{ rate.user.username }}</a></p>
-                                        Average Rate:<span class="badge rounded-pill bg-info text-white">{{ rate.avg_rate }}</span>  
+                                        <span class="badge rounded-pill bg-info text-white">{{ rate.avg_rate }}</span>
                                     </div>
                                 </div>
                             </div>
                             <div>
-                                <div class="d-flex justify-content-center ">
+                                <div class="d-flex justify-content-center text-center">
                                     <div class="m-1">
                                         <a class="btn btn-design"><span class="text-dark">{{ rate.design_rate  }}</span></a> <br>
                                         <span>Design</span>
@@ -115,12 +112,20 @@
                     {% endfor %}
                 </div>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         {% if user.is_authenticated %}
+                        <div class="d-grid gap-2 mt-4">
+                            <button class="btn" type="button" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">Vote</button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Rate</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Vote</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
                                             <form action="{% url 'rate_project' project.id %}" method="post">
@@ -161,8 +166,3 @@
         </div>
     </section>
     {% endblock %}
-
-
-    <!-- ................................. -->
-
-    

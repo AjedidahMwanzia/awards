@@ -231,17 +231,19 @@ a:focus {
   border-radius: 50%;
 }
 .single-top-header {
-  background-position: center;
+  height: 40vw;
   background-repeat: no-repeat;
   background-size: cover;
+  box-sizing: border-box;
   color: white;
+
 }
 
 .single-content {
   padding: 2vw;
   margin-top: 1vw;
   margin-bottom: 4vw;
-  color: black;
+  color:white;
 }
 .images #imag {
   margin-top: 1vw;
@@ -252,6 +254,11 @@ a:focus {
   height: 4vw;
   width: 4vw;
   border-radius: 50%;
+  
+}
+.author{
+ font-weight: 500;
+ color: white;
 }
 
 .blog-container {
@@ -385,11 +392,13 @@ a:focus {
 }
 .card-img-top{
   width: 100%;
+  padding: 0.1vw;
 }
 .poster-img{
-  width: 40%;
+  width: 45%;
   height: 1vw;
   margin-top: 0.7vw;
+  
 }
 .display-on-hover .btn{
   padding: 0;
