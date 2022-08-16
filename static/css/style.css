@@ -409,3 +409,19 @@ a:focus {
 .blog-section{
   margin: 3vw;
 }
+.mb-3 input {
+  width: 68vw;
+  margin-left: -1vw;
+  padding: 0.5vw;
+}
+#exampleModalLabel  h5{
+  font-size: 2vw;
+  font-weight: bold;
+  color: rgb(0, 174, 255);
+}
+.modal-footer button{
+  font-size: 1vw;
+}
+.mb-3 label{
+  padding: 0.3vw;
+}

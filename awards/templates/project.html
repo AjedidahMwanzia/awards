@@ -115,17 +115,19 @@
                     <div class="col-md-12">
                         {% if user.is_authenticated %}
                         <div class="d-grid gap-2 mt-4">
-                            <button class="btn" type="button" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">Vote</button>
+                            <!-- <button class="btn" type="button" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">Vote</button> -->
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                aria-hidden="true">
+                            <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true"> -->
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Vote</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
+                                            <h5 class="modal-title"  style="font-size: 1.5vw;
+                                            font-weight: bold;
+                                            color: rgb(0, 174, 255);" id="exampleModalLabel">Vote</h5>
+                                            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button> -->
                                         </div>
                                         <div class="modal-body">
                                             <form action="{% url 'rate_project' project.id %}" method="post">
