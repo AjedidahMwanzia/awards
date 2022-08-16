@@ -2,11 +2,12 @@
 {% load bootstrap3 %}
 {% block content %}
 
+
 <section class="profile container">
     <div class=" mt-5">
         <div class="row">
-            <div class="col-md-6">
-                <div class="card">
+            <div id="part9" class="col-md-12">
+                <div  id="card4" class="card">
 
                     {% if profile.profile_photo %}
                     <img src="{{profile.profile_photo.url}}" alt="" class="card-img-top">
@@ -38,9 +39,9 @@
                     </div>
                 </div>
                 
-                <div class="row mt-3 mb-3">
+                <div   class="row mt-3 mb-3">
                     <div class="col-md-12">
-                        <div class="card p-2">
+                        <div id="card4"class="card p-2">
                      
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -110,7 +111,7 @@
 
                 </div>
             </div>
-            <div class="col-md-6" id="part2">
+            <div class="col-md-12" id="part2">
                 <div class="row">
                     {% if success %}
                     <div class="alert alert-success" role="alert">
@@ -121,18 +122,11 @@
                         {{ danger }}
                     </div>
                     {% endif %}
-                    <!-- button to open add picture modal -->
-                    <!-- <div class="col-md-12">
-                        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#myModal"> Add
-                      modal -->
-                        <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">  -->
+                    
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Add Project</h5>
-                                        <button type="submit" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
+                                       
                                     </div>
                                     <div class="modal-body">
                                         <form action="{% url 'save_project' %}" method="post"
@@ -170,7 +164,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6 part3" >
+                <div class="col-md-12 part3" >
                     <div class="card m-3">
                         <table class="table table-responsive table-hover">
                             <thead>
