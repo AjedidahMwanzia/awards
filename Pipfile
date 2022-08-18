@@ -23,6 +23,7 @@ python-decouple = "*"
 gunicorn = "*"
 whitenoise = "*"
 django-heroku = "*"
+"backports.weakref" = "*"
 
 [dev-packages]
 
