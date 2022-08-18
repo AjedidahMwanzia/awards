@@ -10,8 +10,9 @@ from rest_framework import status
 from django.http import Http404
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializer import ProfileSerializer,ProjectSerializer
+from .serializer import ProfileSerializer,ProjectSerializer,UserSerializer
 from .permissions import IsAdminOrReadOnly
+from rest_framework import viewsets
 
 
 def home(request):
@@ -172,6 +173,19 @@ def search_project(request):
         message = "You haven't searched for any term"
         return render(request, "search.html", {"message": message})
 
+def signup(request):
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('index')
+    else:
+        form = SignupForm()
+    return render(request, 'registration/signup.html', {'form': form})
 
 
 class ProfileList(APIView): # get all profiles
@@ -189,3 +203,7 @@ class ProjectList(APIView): # get all projects
         all_projects = Project.objects.all()
         serializers = ProjectSerializer(all_projects, many=True)
         return Response(serializers.data)
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer

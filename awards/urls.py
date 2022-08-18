@@ -16,6 +16,7 @@ urlpatterns = [
     path("search/", views.search_project, name="search_project"),
     path('api/profile/', views.ProfileList.as_view()),
     path('api/project/', views.ProjectList.as_view()),
+    path('signup/', views.signup, name='signup'),
 
 ]
 

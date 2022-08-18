@@ -424,3 +424,11 @@ a:focus {
   font-size: 1.2vw;
   margin-bottom: 1vw;
 }
+/* .............................. */
+@media (max-width: 500px) {
+  .blog-section .card .card-img-top{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
