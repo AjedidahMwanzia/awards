@@ -24,6 +24,7 @@ gunicorn = "*"
 whitenoise = "*"
 django-heroku = "*"
 "backports.weakref" = "*"
+dj-database-url = "*"
 
 [dev-packages]
 
