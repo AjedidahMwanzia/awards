@@ -105,15 +105,19 @@ REST_FRAMEWORK = {
 # DEBUG = config('DEBUG', default=False, cast=bool)
 # development
 # if config('MODE')=="dev":
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.getenv('DB_NAME'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'USERNAME': os.getenv('DB_USERNAME'),
-    }
-    
-}
+DDATABASES = {
+        'default': {
+           'ENGINE': 'django.db.backends.postgresql_psycopg2',
+           'NAME': 'railway',
+           'USER':'postgres',
+           'PASSWORD':'mGRCROZKVpAdKGTwkPzd',
+           'HOST':'containers-us-west-171.railway.app',
+           'PORT':'6524',
+
+               
+       }
+       
+   }
 # production
 # else:
 #    DATABASES = {
@@ -164,14 +168,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
